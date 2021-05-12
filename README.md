@@ -1,0 +1,1 @@
+"This is a brower version of the famous Etch-A-Sketch Game. Built according to The Odin Project
