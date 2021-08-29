@@ -1,5 +1,6 @@
 const container = document.querySelector('.container') 
 const gridContainer = document.querySelector('#grid-container'); 
+const clearGrid = document.querySelector('#clear-grid');
 
 function createDivs(col,rows) {
      for(let i = 0; i < (col * rows); i++) { 
@@ -20,4 +21,10 @@ createDivs(16,16);
     this.style.backgroundColor ='#ff9999'; }); 
 }); 
 
-let eraseGrid = document.querySelector('#clear-grid');
+   function clearcontent(){
+      document.querySelectorAll('.box');
+      box.forEach(function(box) {
+      box.style.backgroundColor = 'antiquewhite';});
+      }
+
+   clearGrid.addEventListener('click',clearcontent);
