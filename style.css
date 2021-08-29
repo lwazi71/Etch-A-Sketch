@@ -4,9 +4,10 @@
 }
 
 .grid {
-    display:grid;
-    max-width: 500px;
-    min-height: 500px;
-    border:2px solid black;
-    margin: auto;
+  display: grid;
+  justify-content: center;
+  margin:auto;
+  width: 550px;
+  height: 550px;
+  border: black solid 8px
 }
