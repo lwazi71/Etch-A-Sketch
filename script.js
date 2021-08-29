@@ -2,6 +2,7 @@ const container = document.querySelector('.container')
 const gridContainer = document.querySelector('#grid-container');
 const clearGrid = document.querySelector('#clear-grid');
 const resizeGrid = document.querySelector('#resize-button');
+const box = document.querySelectorAll('.box');
 
 function createDivs(col, rows) {
 	gridContainer.innerHTML = '';
@@ -34,6 +35,7 @@ function createDivs(col, rows) {
 
 createDivs(16, 16);
 
+
 function resizecontent() {
 	document.querySelectorAll('.box');
 	box.forEach(function (box) {
@@ -48,7 +50,7 @@ function resizecontent() {
 		do {
 			size = prompt("Invalid size! Try Again! Make sure your value is between 5-64!");
 		}
-		while (number < 5 || number > 64);
+		while (size < 5 || size > 64);
 		createDivs(size, size);
 	}
 }
