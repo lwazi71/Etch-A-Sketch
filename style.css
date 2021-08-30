@@ -7,8 +7,8 @@
   display: grid;
   justify-content: center;
   margin:auto;
-  width: 550px;
-  height: 550px;
+  width: 600px;
+  height: 600px;
   border: black solid 1px;
 }
 #button-containers {
