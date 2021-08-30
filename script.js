@@ -4,6 +4,7 @@ const clearGrid = document.querySelector('#clear-grid');
 const resizeGrid = document.querySelector('#resize-button');
 const box = document.querySelectorAll('.box');
 const rgb = document.querySelector('#rgb');
+const colorPicker = document.querySelector('#color-picker');
 
 function createDivs(col, rows) {
 	gridContainer.innerHTML = '';
@@ -23,7 +24,8 @@ function createDivs(col, rows) {
 		function clearcontent() {
 			document.querySelectorAll('.box');
 			box.forEach(function (box) {
-				box.style.backgroundColor = 'antiquewhite';
+				var white = 'rgb(255,255,255)';
+				box.style.backgroundColor = white;	
 			});
 		}
 
@@ -44,6 +46,7 @@ function createDivs(col, rows) {
 			rgb.addEventListener('click', generateRandomColor);
 
 
+
 }
 
 }
@@ -53,7 +56,8 @@ createDivs(16, 16);
 function resizecontent() {
 	document.querySelectorAll('.box');
 	box.forEach(function (box) {
-		box.style.backgroundColor = 'antiquewhite';
+		var white = 'rgb(255,255,255)';
+		box.style.backgroundColor = white;
 
 	});
 
