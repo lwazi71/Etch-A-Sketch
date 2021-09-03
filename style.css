@@ -1,4 +1,4 @@
-.box {
+.individualGridBox {
   border: 1px solid black;
   background-color: rgb(255,255,255);
 }
@@ -17,24 +17,6 @@
   margin: 25px;
 }
 .button {
-  margin:.7rem;
-  border: 2px solid #313131;
-  font-size: 1em;
-  background-color: rgb(255,255,255);
-  min-width:6rem;
-  height:2rem;
-  display:block;
-}
-.button2{
-  margin:.7rem;
-  border: 2px solid #313131;
-  font-size: 1em;
-  background-color: rgb(255,255,255);
-  min-width:6rem;
-  height:2rem;
-  display:block;
-}
-.button3{
   margin:.7rem;
   border: 2px solid #313131;
   font-size: 1em;

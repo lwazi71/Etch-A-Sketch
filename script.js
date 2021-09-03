@@ -1,44 +1,45 @@
 const container = document.querySelector('.container')
-const gridContainer = document.querySelector('#grid-container');
-const clearGrid = document.querySelector('#clear-grid');
-const resizeGrid = document.querySelector('#resize-button');
-const box = document.querySelectorAll('.box');
+let gridContainer = document.querySelector('#grid-container');
+let clearGrid = document.querySelector('#clear-grid');
+let resizeGrid = document.querySelector('#resize-button');
+const individualGridBox = document.querySelectorAll('.individualGridBox');
 const rgb = document.querySelector('#rgb');
 const colorPicker = document.querySelector('#color-picker');
+const black = document.querySelector('#black');
 
-function createDivs(col, rows) {
+function setupUI(col, rows) {
 	gridContainer.innerHTML = '';
 	for (let i = 0; i < (col * rows); i++) {
 		const element = document.createElement('div');
 		gridContainer.style.gridTemplateColumns = `repeat(${col},1fr)`;
 		gridContainer.style.gridTemplateRows = `repeat(${rows},1fr)`;
-		gridContainer.appendChild(element).classList.add('box');
+		gridContainer.appendChild(element).classList.add('individualGridBox');
 	}
 
-
-	const box = document.querySelectorAll('.box');
-	box.forEach(function (box) {
-		box.addEventListener('mouseenter', function () {
-			box.style.backgroundColor = '#000000';
+	const individualGridBox = document.querySelectorAll('.individualGridBox');
+	individualGridBox.forEach(function (individualGridBox) {
+		individualGridBox.addEventListener('mouseenter', function () {
+			individualGridBox.style.backgroundColor = '#000000';
 		});
 	});
 
-	function clearcontent() {
-		document.querySelectorAll('.box');
-		box.forEach(function (box) {
+
+	function clearContent() {
+		document.querySelectorAll('.individualGridBox');
+		individualGridBox.forEach(function (individualGridBox) {
 			var white = 'rgb(255,255,255)';
-			box.style.backgroundColor = white;
+			individualGridBox.style.backgroundColor = white;
 		});
 	}
-	clearGrid.addEventListener('click', clearcontent);
+	clearGrid.addEventListener('click', clearContent);
 
 
 	function generateRandomColor() {
-		document.querySelectorAll('.box')
-		box.forEach(function (box) {
+		document.querySelectorAll('.individualGridBox')
+		individualGridBox.forEach(function (individualGridBox) {
 			var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-			box.addEventListener('mouseenter', function () {
-				box.style.backgroundColor = randomColor;
+			individualGridBox.addEventListener('mouseenter', function () {
+				individualGridBox.style.backgroundColor = randomColor;
 				return randomColor;
 			});
 		});
@@ -47,27 +48,39 @@ function createDivs(col, rows) {
 	}
 	rgb.addEventListener('click', generateRandomColor);
 
+	function blackColor() {
+		document.querySelectorAll('.individualGridBox')
+		individualGridBox.forEach(function (individualGridBox) {
+			individualGridBox.addEventListener('mouseenter', function () {
+				individualGridBox.style.backgroundColor = '#000000';
+			});
+		});
+
+
+	}
+	black.addEventListener('click', blackColor);
 
 }
-createDivs(16, 16);
+setupUI(16, 16);
 
-function resizecontent() {
-	document.querySelectorAll('.box');
-	box.forEach(function (box) {
+
+function resizeContent() {
+	document.querySelectorAll('.individualGridBox');
+	individualGridBox.forEach(function (individualGridBox) {
 		var white = 'rgb(255,255,255)';
-		box.style.backgroundColor = white;
+		individualGridBox.style.backgroundColor = white;
 
 	});
 
 	let size = prompt("Please choose grid size between 5-64!", 16)
 	if (size >= 5 && size <= 64) {
-		createDivs(size, size);
+		setupUI(size, size);
 	} else {
 		do {
 			size = prompt("Invalid size! Try Again! Make sure your value is between 5-64!");
 		}
 		while (size < 5 || size > 64);
-		createDivs(size, size);
+		setupUI(size, size);
 	}
 }
-resizeGrid.addEventListener('click', resizecontent);
+resizeGrid.addEventListener('click', resizeContent);
